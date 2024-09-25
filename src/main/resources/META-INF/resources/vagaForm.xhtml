@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Cadastro de Vagas</title>
+</h:head>
+<h:body>
+
+    <h:form id="vagaForm">
+        <p:growl id="growl" life="5000" showDetail="false" showSummary="true" />
+        <p:panel header="Cadastro de Vagas">
+
+            <h:outputLabel for="dataInicio" value="Data de Início:" />
+            <p:calendar id="dataInicio" value="#{vagaBean.vaga.inicio}" pattern="dd/MM/yyyy" required="true"
+                        showOn="button">
+            </p:calendar>
+
+            <h:outputLabel for="dataFim" value="Data de Fim:" />
+            <p:calendar id="dataFim" value="#{vagaBean.vaga.fim}" pattern="dd/MM/yyyy" required="true"
+                        showOn="button">
+            </p:calendar>
+
+            <h:outputLabel for="quantidade" value="Quantidade de Vagas:" />
+            <p:inputText id="quantidade" value="#{vagaBean.vaga.quantidade}" required="true">
+            </p:inputText>
+
+            <p:commandButton value="Salvar" action="#{vagaBean.salvar}" update="vagaForm vagasTable" process="@form" />
+
+        </p:panel>
+
+        <p:panel header="Lista de Vagas Cadastradas">
+            <p:dataTable id="vagasTable" value="#{vagaBean.vagas}" var="vaga" emptyMessage="Nenhuma vaga cadastrada">
+                <p:column headerText="Data de Início">
+                    <h:outputText value="#{vaga.inicio}">
+                    </h:outputText>
+                </p:column>
+                <p:column headerText="Data de Término">
+                    <h:outputText value="#{vaga.fim}">
+                    </h:outputText>
+                </p:column>
+                <p:column headerText="Quantidade">
+                    <h:outputText value="#{vaga.quantidade}" />
+                </p:column>
+            </p:dataTable>
+        </p:panel>
+
+    </h:form>
+    <p:button value="Voltar" outcome="index"/>
+</h:body>
+</html>

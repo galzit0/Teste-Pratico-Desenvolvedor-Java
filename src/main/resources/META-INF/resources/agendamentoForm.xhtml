@@ -1,0 +1,61 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>Cadastro de agendamentos</title>
+</h:head>
+<h:body>
+
+    <h:form id="agendamentoForm">
+        <p:growl id="growl" life="5000" showDetail="true" showSummary="true" />
+
+        <p:panel header="Cadastro de Agendamento">
+            <h:outputLabel for="solicitante" value="Solicitante:" />
+            <p:selectOneMenu id="solicitante" value="#{agendamentoBean.solicitanteId}" required="true">
+                <f:selectItems value="#{agendamentoBean.solicitantes}" var="solicitante"
+                               itemLabel="#{solicitante.nome}" itemValue="#{solicitante.id}"/>
+            </p:selectOneMenu>
+
+            <h:outputLabel for="data" value="Data do Agendamento:" />
+            <p:calendar id="data" value="#{agendamentoBean.agendamento.data}" required="true" pattern="dd/MM/yyyy" showOn="button">
+            </p:calendar>
+
+            <h:outputLabel for="motivo" value="Motivo:" />
+            <p:inputText id="motivo" value="#{agendamentoBean.agendamento.motivo}" required="true" />
+
+            <p:commandButton value="Salvar" action="#{agendamentoBean.salvar}"
+                             update="agendamentoForm agendamentosTable" process="@form" />
+        </p:panel>
+
+        <p:panel header="Lista de Agendamentos">
+            <p:dataTable id="agendamentosTable" value="#{agendamentoBean.agendamentos}" var="agendamento" emptyMessage="Nenhum agendamento encontrado">
+                <p:column headerText="ID">
+                    <h:outputText value="#{agendamento.id}" />
+                </p:column>
+                <p:column headerText="Solicitante">
+                    <h:outputText value="#{agendamento.solicitante.nome}" />
+                </p:column>
+                <p:column headerText="Data">
+                    <h:outputText value="#{agendamento.data}">
+                    </h:outputText>
+                </p:column>
+                <p:column headerText="Motivo">
+                    <h:outputText value="#{agendamento.motivo}" />
+                </p:column>
+                <p:column headerText="Ações">
+                    <p:commandButton value="Excluir"
+                                     action="#{agendamentoBean.excluirAgendamento(agendamento.id)}"
+                                     update="agendamentoForm agendamentosTable"
+                                     process="@this"
+                                     icon="ui-icon-trash"
+                                     styleClass="ui-button-danger"
+                                     onclick="return confirm('Confirma a exclusão?');"/>
+                </p:column>
+            </p:dataTable>
+        </p:panel>
+    </h:form>
+
+    <p:button value="Voltar" outcome="index"/>
+</h:body>
+</html>
