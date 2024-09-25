@@ -14,28 +14,30 @@
 
         <p:panel header="Consulta de Agendamentos">
 
-            <h:outputLabel for="solicitante" value="Solicitante:" />
-            <p:selectOneMenu id="solicitante" value="#{consultaAgendamentoBean.solicitanteId}" required="false">
-                <f:selectItem itemLabel="Todos" itemValue="#{null}" noSelectionOption="true"/>
+            <h:outputLabel for="solicitante" value="Solicitante:" style="margin-right: 10px;" />
+            <p:selectOneMenu id="solicitante" value="#{consultaAgendamentoBean.solicitanteId}" required="false" style="margin-right: 10px;" >
+                <f:selectItem itemLabel="Todos" itemValue="#{null}" noSelectionOption="true" />
                 <f:selectItems value="#{consultaAgendamentoBean.solicitantes}" var="solicitante"
                                itemLabel="#{solicitante.nome}" itemValue="#{solicitante.id}"/>
             </p:selectOneMenu>
 
-            <h:outputLabel for="dataInicio" value="Data de Início:" />
-            <p:calendar id="dataInicio" value="#{consultaAgendamentoBean.inicio}" pattern="dd/MM/yyyy" showOn="button" required="true" />
+            <h:outputLabel for="dataInicio" value="Data de Início:" style="margin-right: 10px;" />
+            <p:calendar id="dataInicio" value="#{consultaAgendamentoBean.inicio}" pattern="dd/MM/yyyy" showOn="button" required="true" style="margin-right: 10px;" />
 
-            <h:outputLabel for="dataFim" value="Data de Fim:" />
+            <h:outputLabel for="dataFim" value="Data de Fim:" style="margin-right: 10px;" />
             <p:calendar id="dataFim" value="#{consultaAgendamentoBean.fim}" pattern="dd/MM/yyyy" showOn="button" required="true" />
-
+        </p:panel>
+        <p:panel>
             <p:commandButton value="Consultar Agendamentos" action="#{consultaAgendamentoBean.consultarAgendamentos}"
-                             update="consultaAgendamentosForm agendamentosTable" process="@form" />
+                             update="consultaAgendamentosForm agendamentosTable" process="@form"
+                             style="margin-right: 10px;" />
 
             <p:commandButton value="Consultar Total de Agendamentos por Solicitante" action="#{consultaAgendamentoBean.consultarTotalAgendamentos}"
-                             update="consultaAgendamentosForm totalAgendamentosTable" process="@form" />
+                             update="consultaAgendamentosForm totalAgendamentosTable" process="@form"
+                             style="margin-right: 10px;" />
 
             <p:commandButton value="Limpar Filtros" action="#{consultaAgendamentoBean.limparFiltros}"
                              update="consultaAgendamentosForm" process="@this" />
-
         </p:panel>
 
         <p:panel header="Agendamentos no Período">

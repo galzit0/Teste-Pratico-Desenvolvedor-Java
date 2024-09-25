@@ -10,18 +10,18 @@
         <p:growl id="growl" life="5000" showDetail="false" showSummary="true" />
         <p:panel header="Cadastro de Vagas">
 
-            <h:outputLabel for="dataInicio" value="Data de Início:" />
+            <h:outputLabel for="dataInicio" value="Data de Início:" style="margin-right: 10px;" />
             <p:calendar id="dataInicio" value="#{vagaBean.vaga.inicio}" pattern="dd/MM/yyyy" required="true"
-                        showOn="button">
+                        showOn="button" style="margin-right: 10px;" >
             </p:calendar>
 
-            <h:outputLabel for="dataFim" value="Data de Fim:" />
+            <h:outputLabel for="dataFim" value="Data de Fim:" style="margin-right: 10px;" />
             <p:calendar id="dataFim" value="#{vagaBean.vaga.fim}" pattern="dd/MM/yyyy" required="true"
-                        showOn="button">
+                        showOn="button" style="margin-right: 10px;" >
             </p:calendar>
 
-            <h:outputLabel for="quantidade" value="Quantidade de Vagas:" />
-            <p:inputText id="quantidade" value="#{vagaBean.vaga.quantidade}" required="true">
+            <h:outputLabel for="quantidade" value="Quantidade de Vagas:" style="margin-right: 10px;" />
+            <p:inputText id="quantidade" value="#{vagaBean.vaga.quantidade}" required="true" style="margin-right: 20px;" >
             </p:inputText>
 
             <p:commandButton value="Salvar" action="#{vagaBean.salvar}" update="vagaForm vagasTable" process="@form" />

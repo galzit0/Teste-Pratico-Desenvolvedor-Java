@@ -11,18 +11,18 @@
         <p:growl id="growl" life="5000" showDetail="true" showSummary="true" />
 
         <p:panel header="Cadastro de Agendamento">
-            <h:outputLabel for="solicitante" value="Solicitante:" />
-            <p:selectOneMenu id="solicitante" value="#{agendamentoBean.solicitanteId}" required="true">
+            <h:outputLabel for="solicitante" value="Solicitante:" style="margin-right: 10px;" />
+            <p:selectOneMenu id="solicitante" value="#{agendamentoBean.solicitanteId}" required="true" style="margin-right: 10px;" >
                 <f:selectItems value="#{agendamentoBean.solicitantes}" var="solicitante"
                                itemLabel="#{solicitante.nome}" itemValue="#{solicitante.id}"/>
             </p:selectOneMenu>
 
-            <h:outputLabel for="data" value="Data do Agendamento:" />
-            <p:calendar id="data" value="#{agendamentoBean.agendamento.data}" required="true" pattern="dd/MM/yyyy" showOn="button">
+            <h:outputLabel for="data" value="Data do Agendamento:" style="margin-right: 10px;" />
+            <p:calendar id="data" value="#{agendamentoBean.agendamento.data}" required="true" pattern="dd/MM/yyyy" showOn="button" style="margin-right: 10px;" >
             </p:calendar>
 
-            <h:outputLabel for="motivo" value="Motivo:" />
-            <p:inputText id="motivo" value="#{agendamentoBean.agendamento.motivo}" required="true" />
+            <h:outputLabel for="motivo" value="Motivo:" style="margin-right: 10px;" />
+            <p:inputText id="motivo" value="#{agendamentoBean.agendamento.motivo}" required="true" style="margin-right: 20px;" />
 
             <p:commandButton value="Salvar" action="#{agendamentoBean.salvar}"
                              update="agendamentoForm agendamentosTable" process="@form" />
