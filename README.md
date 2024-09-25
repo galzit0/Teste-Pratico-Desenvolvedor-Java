@@ -32,7 +32,7 @@ Este projeto é um **sistema de agendamento** desenvolvido em **Java** com **JSF
 
 1. Clone este repositório para sua máquina local:
    ```bash
-   git clone https://github.com/
+   git clone https://github.com/galzit0/Teste-Pratico-Desenvolvedor-Java
    ```
 2. Instale as dependências do projeto usando o Maven:
     ```bash
